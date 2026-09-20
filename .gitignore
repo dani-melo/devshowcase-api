@@ -15,3 +15,14 @@ npm-debug.log*
 # Sistema operacional
 .DS_Store
 Thumbs.db
+/src/generated/prisma
+
+# Banco SQLite local
+dev.db
+dev.db-journal
+
+# Arquivos auxiliares gerados pelo Prisma
+.agents/
+.claude/
+.windsurf/
+skills-lock.json
