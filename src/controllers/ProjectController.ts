@@ -11,12 +11,14 @@ export class ProjectController {
     if (errors.length > 0) {
       return res.status(400).json({ errors });
     }
+    try{
+        const project = await projectService.create(req.body);
 
-    const project = await projectService.create(req.body);
-
-    return res.status(201).json(project);
+        return res.status(201).json(project);
+        }catch (error) {
+        return res.status(404).json({ error: "Profile não encontrado." });
+    }
   }
-
   async findAll(req: Request, res: Response) {
    const projects = await projectService.findAll();
 
