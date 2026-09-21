@@ -16,4 +16,10 @@ export class ProjectController {
 
     return res.status(201).json(project);
   }
+
+  async findAll(req: Request, res: Response) {
+   const projects = await projectService.findAll();
+
+   return res.status(200).json(projects);
+  }
 }

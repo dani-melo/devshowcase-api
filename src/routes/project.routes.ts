@@ -5,5 +5,6 @@ const projectRoutes = Router();
 const projectController = new ProjectController();
 
 projectRoutes.post("/", (req, res) => projectController.create(req, res));
+projectRoutes.get("/", (req, res) => projectController.findAll(req, res));
 
 export default projectRoutes;
