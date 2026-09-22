@@ -9,11 +9,11 @@ const options: swaggerJsdoc.Options = {
       description: "API para gerenciamento de perfis, projetos, tecnologias e feedbacks.",
     },
     servers: [
-      {
-        url: "http://localhost:3000",
-        description: "Servidor local",
-      },
-    ],
+  {
+    url: "/",
+    description: "Servidor atual",
+  },
+],
   },
   apis: ["./src/routes/*.ts"],
 };
