@@ -53,7 +53,7 @@ projectRoutes.post("/", (req, res, next) =>
  * /api/projects:
  *   get:
  *     summary: Lista os projetos
- *     description: Retorna os projetos cadastrados com suporte à paginação.
+ *     description: Retorna os projetos cadastrados com suporte à paginação e filtro por tecnologia.
  *     tags:
  *       - Projects
  *     parameters:
@@ -69,6 +69,12 @@ projectRoutes.post("/", (req, res, next) =>
  *           type: integer
  *           default: 10
  *         description: Quantidade de projetos por página
+ *       - in: query
+ *         name: technology
+ *         schema:
+ *           type: string
+ *         description: Nome da tecnologia usada para filtrar os projetos
+ *         example: TypeScript
  *     responses:
  *       200:
  *         description: Lista de projetos retornada com sucesso.
