@@ -13,8 +13,36 @@ export class ProjectRepository {
     });
 }
 
-    async findAll() {
-        return prisma.project.findMany();
+    async findAll(page: number = 1, limit: number = 10) {
+      const skip = (page - 1) * limit;
+
+       return prisma.project.findMany({
+        skip: skip,
+        take: limit,
+      });
     }
 
+    async updateAverageRating(projectId: number, averageRating: number) {
+      return prisma.project.update({
+        where: {
+        id: projectId,
+        },
+        data: {
+        averageRating: averageRating,
+        },
+      });
+    }
+
+    async incrementUpvote(projectId: number) {
+      return prisma.project.update({
+        where: {
+        id: projectId,
+        },
+        data: {
+        upvotes: {
+          increment: 1,
+        },
+        },
+      });
+    }
   }

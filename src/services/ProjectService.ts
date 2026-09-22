@@ -8,7 +8,11 @@ export class ProjectService {
     return projectRepository.create(data);
   }
 
-  async findAll() {
-   return projectRepository.findAll();
-}
+  async findAll(page: number = 1, limit: number = 10) {
+    return projectRepository.findAll(page, limit);
+  }
+
+  async upvote(projectId: number) {
+   return projectRepository.incrementUpvote(projectId);
+  }
 }

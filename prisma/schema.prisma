@@ -26,6 +26,8 @@ model Project {
   title         String
   description   String?
   repositoryUrl String?
+  averageRating Float @default(0)
+  upvotes       Int   @default(0)
 
   profileId Int
   profile   Profile @relation(fields: [profileId], references: [id])
@@ -44,6 +46,7 @@ model Feedback {
   id         Int      @id @default(autoincrement())
   authorName String
   comment    String
+  rating Int
   createdAt  DateTime @default(now())
 
   projectId Int
