@@ -3,6 +3,7 @@ export interface CreateProjectDTO {
   description?: string;
   repositoryUrl?: string;
   profileId: number;
+  technologyIds?: number[];
 }
 
 export interface ProjectResponseDTO {

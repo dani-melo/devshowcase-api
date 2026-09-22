@@ -28,9 +28,18 @@ export class ProjectController {
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 10;
 
-    const projects = await projectService.findAll(page, limit);
+    const technology =
+      typeof req.query.technology === "string"
+        ? req.query.technology
+        : undefined;
 
-     return res.status(200).json(projects);
+    const projects = await projectService.findAll(
+      page,
+      limit,
+      technology
+    );
+
+    return res.status(200).json(projects);
   }
 
   async upvote(req: Request, res: Response, next: NextFunction) {

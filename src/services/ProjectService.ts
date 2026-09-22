@@ -8,8 +8,12 @@ export class ProjectService {
     return projectRepository.create(data);
   }
 
-  async findAll(page: number = 1, limit: number = 10) {
-    return projectRepository.findAll(page, limit);
+  async findAll(
+    page: number = 1,
+    limit: number = 10,
+    technology?: string
+  ) {
+    return projectRepository.findAll(page, limit, technology);
   }
 
   async upvote(projectId: number) {
